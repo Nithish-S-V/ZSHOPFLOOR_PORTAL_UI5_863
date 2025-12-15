@@ -1,0 +1,121 @@
+<mvc:View
+    controllerName="ZSHOPFLOOR_PORTAL_UI5_863.controller.PlannedOrders"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    displayBlock="true">
+    <Page id="plannedOrdersPage" title="{i18n>plannedOrdersTitle}" showNavButton="true" navButtonPress=".onNavBack" class="plannedOrdersPage">
+        <subHeader>
+            <Toolbar>
+                <Title text="{i18n>plannedOrdersSubtitle}" level="H3"/>
+                <ToolbarSpacer/>
+                <Select
+                    id="idPeriodSelect"
+                    width="200px"
+                    change=".onSearch"
+                    class="sapUiSmallMarginEnd"/>
+                <SearchField 
+                    id="searchField"
+                    placeholder="{i18n>searchPlaceholder}"
+                    search=".onSearch"
+                    width="300px"/>
+                <Button 
+                    icon="sap-icon://refresh" 
+                    tooltip="{i18n>refreshButton}"
+                    press=".onRefresh"/>
+            </Toolbar>
+        </subHeader>
+        
+        <content>
+            <Table
+                id="plannedOrdersTable"
+                items="{
+                    path: 'localModel>/results'
+                }"
+                growing="true"
+                growingThreshold="20"
+                mode="SingleSelectMaster"
+                class="sapUiResponsiveContentPadding">
+                <headerToolbar>
+                    <Toolbar>
+                        <Title text="{parts: [{path: 'i18n>plannedOrdersTitle'}, {path: 'viewModel>/filterType'}], formatter: '.formatter.formatTitle'}"/>
+                        <ToolbarSpacer/>
+                        <Text text="Total: {viewModel>/count}"/>
+                    </Toolbar>
+                </headerToolbar>
+                <columns>
+                    <Column width="10em">
+                        <Text text="{i18n>colPlannedOrderNumber}"/>
+                    </Column>
+                    <Column width="8em" minScreenWidth="Tablet" demandPopin="true">
+                        <Text text="{i18n>colMaterialNumber}"/>
+                    </Column>
+                    <Column width="8em" minScreenWidth="Tablet" demandPopin="true">
+                        <Text text="{i18n>colPlanningPlant}"/>
+                    </Column>
+                    <Column width="8em" minScreenWidth="Desktop" demandPopin="true">
+                        <Text text="{i18n>colProductionPlant}"/>
+                    </Column>
+                    <Column width="7em" hAlign="End">
+                        <Text text="{i18n>colPlannedQuantity}"/>
+                    </Column>
+                    <Column width="7em" hAlign="End" minScreenWidth="Tablet" demandPopin="true">
+                        <Text text="{i18n>colAvailableQuantity}"/>
+                    </Column>
+                    <Column width="10em">
+                        <Text text="{i18n>colBasicStartDate}"/>
+                    </Column>
+                    <Column width="10em" minScreenWidth="Desktop" demandPopin="true">
+                        <Text text="{i18n>colBasicEndDate}"/>
+                    </Column>
+                    <Column width="10em" minScreenWidth="Desktop" demandPopin="true">
+                        <Text text="{i18n>colReleaseDate}"/>
+                    </Column>
+                    <Column width="8em" minScreenWidth="Desktop" demandPopin="true">
+                        <Text text="{i18n>colMRPController}"/>
+                    </Column>
+                    <Column width="6em" minScreenWidth="Desktop" demandPopin="true">
+                        <Text text="{i18n>colOrderCategory}"/>
+                    </Column>
+                    <Column width="9em" minScreenWidth="Desktop" demandPopin="true">
+                        <Text text="{i18n>colProcurementType}"/>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem type="Active">
+                        <cells>
+                            <ObjectIdentifier 
+                                title="{localModel>Plannedordernumber}"
+                                titleActive="true"/>
+                            <Text text="{localModel>Materialnumber}"/>
+                            <Text text="{localModel>Planningplant}"/>
+                            <Text text="{localModel>Productionplant}"/>
+                            <ObjectNumber 
+                                number="{localModel>Plannedquantity}" 
+                                unit="{localModel>Baseunitofmeasure}"
+                                state="None"/>
+                            <ObjectNumber 
+                                number="{localModel>Availablequantity}" 
+                                unit="{localModel>Baseunitofmeasure}"/>
+                            <Text text="{
+                                path: 'localModel>Basicstartdate',
+                                formatter: '.formatter.formatDate'
+                            }"/>
+                            <Text text="{
+                                path: 'localModel>Basicenddate',
+                                formatter: '.formatter.formatDate'
+                            }"/>
+                            <Text text="{
+                                path: 'localModel>Releasedate',
+                                formatter: '.formatter.formatDate'
+                            }"/>
+                            <Text text="{localModel>Mrpcontroller}"/>
+                            <Text text="{localModel>Ordercategory}"/>
+                            <Text text="{localModel>Procurementtype}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+    </Page>
+</mvc:View>

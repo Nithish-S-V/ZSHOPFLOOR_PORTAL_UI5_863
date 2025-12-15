@@ -1,0 +1,142 @@
+{
+    "_version": "1.76.0",
+    "sap.app": {
+        "id": "ZSHOPFLOOR_PORTAL_UI5_863",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "applicationVersion": {
+            "version": "1.0.0"
+        },
+        "ach": "Z-SFPORTAL",
+        "dataSources": {
+            "mainService": {
+                "uri": "/sap/opu/odata/sap/ZSHOP_PORTAL_863_SRV/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0",
+                    "localUri": "localService/metadata.xml",
+                    "annotations": []
+                }
+            }
+        },
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:basic",
+            "version": "1.20.0"
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": false,
+        "rootView": {
+            "viewName": "ZSHOPFLOOR_PORTAL_UI5_863.view.App",
+            "type": "XML",
+            "async": true,
+            "id": "app"
+        },
+        "dependencies": {
+            "minUI5Version": "1.70.0",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {},
+                "sap.ui.layout": {},
+                "sap.f": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "ZSHOPFLOOR_PORTAL_UI5_863.i18n.i18n"
+                }
+            },
+            "": {
+                "dataSource": "mainService",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "None",
+                    "useBatch": false
+                }
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "viewPath": "ZSHOPFLOOR_PORTAL_UI5_863.view",
+                "controlId": "app",
+                "controlAggregation": "pages",
+                "async": true,
+                "clearControlAggregation": false
+            },
+            "routes": [
+                {
+                    "pattern": "",
+                    "name": "login",
+                    "target": "login"
+                },
+                {
+                    "pattern": "dashboard",
+                    "name": "dashboard",
+                    "target": "dashboard"
+                },
+                {
+                    "pattern": "plannedorders/{filter}",
+                    "name": "plannedorders",
+                    "target": "plannedorders"
+                },
+                {
+                    "pattern": "productionorders/{filter}",
+                    "name": "productionorders",
+                    "target": "productionorders"
+                }
+            ],
+            "targets": {
+                "login": {
+                    "viewId": "login",
+                    "viewName": "Login"
+                },
+                "dashboard": {
+                    "viewId": "dashboard",
+                    "viewName": "Dashboard"
+                },
+                "plannedorders": {
+                    "viewId": "plannedorders",
+                    "viewName": "PlannedOrders"
+                },
+                "productionorders": {
+                    "viewId": "productionorders",
+                    "viewName": "ProductionOrders"
+                }
+            }
+        }
+    }
+}

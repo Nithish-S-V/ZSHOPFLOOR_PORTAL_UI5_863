@@ -1,0 +1,129 @@
+<mvc:View
+    controllerName="ZSHOPFLOOR_PORTAL_UI5_863.controller.Dashboard"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:card="sap.f.cards"
+    displayBlock="true">
+    <Page id="dashboardPage" title="{i18n>dashboardTitle}" showHeader="true" class="dashboardPage">
+        <customHeader>
+            <Toolbar class="dashboardToolbar">
+                <Title text="{i18n>dashboardTitle}" level="H1"/>
+                <ToolbarSpacer/>
+                <Text text="{i18n>welcomeMessage}" class="welcomeText"/>
+                <Button 
+                    icon="sap-icon://log" 
+                    text="{i18n>logoutButton}" 
+                    press=".onLogout" 
+                    type="Transparent"
+                    class="logoutBtn"/>
+            </Toolbar>
+        </customHeader>
+        
+        <content>
+            <VBox class="sapUiResponsiveContentPadding dashboardContent">
+                <!-- Description Section -->
+                <VBox class="sapUiSmallMarginBottom">
+                    <Title text="{i18n>dashboardDescription}" level="H3" class="sapUiTinyMarginBottom"/>
+                </VBox>
+                
+                <!-- Tiles Section -->
+                <f:GridContainer class="sapUiMediumMarginTop" id="gridContainer">
+                    <f:layout>
+                        <f:GridContainerSettings 
+                            rowSize="5rem" 
+                            columnSize="5rem" 
+                            gap="1rem" />
+                    </f:layout>
+                    
+                    <!-- Planned Orders MTD Tile -->
+                    <GenericTile 
+                        id="plannedOrdersMTDTile"
+                        header="{i18n>plannedOrdersMTD}"
+                        subheader="{i18n>filterMTD}"
+                        press=".onPlannedOrdersMTDPress"
+                        class="sapUiTinyMarginBottom tileContent"
+                        frameType="TwoByOne">
+                        <layoutData>
+                            <f:GridContainerItemLayoutData minRows="4" columns="4" />
+                        </layoutData>
+                        <TileContent>
+                            <NumericContent 
+                                value="{/plannedOrdersMTDCount}" 
+                                scale=""
+                                valueColor="Good"
+                                icon="sap-icon://calendar"
+                                withMargin="false"/>
+                        </TileContent>
+                    </GenericTile>
+
+                    <!-- Production Orders MTD Tile -->
+                    <GenericTile 
+                        id="productionOrdersMTDTile"
+                        header="{i18n>productionOrdersMTD}"
+                        subheader="{i18n>filterMTD}"
+                        press=".onProductionOrdersMTDPress"
+                        class="sapUiTinyMarginBottom tileContent"
+                        frameType="TwoByOne">
+                        <layoutData>
+                            <f:GridContainerItemLayoutData minRows="4" columns="4" />
+                        </layoutData>
+                        <TileContent>
+                            <NumericContent 
+                                value="{/productionOrdersMTDCount}" 
+                                scale=""
+                                valueColor="Error"
+                                icon="sap-icon://factory"
+                                withMargin="false"/>
+                        </TileContent>
+                    </GenericTile>
+                    
+                    <!-- Planned Orders YTD Tile -->
+                    <GenericTile 
+                        id="plannedOrdersYTDTile"
+                        header="{i18n>plannedOrdersYTD}"
+                        subheader="{i18n>filterYTD}"
+                        press=".onPlannedOrdersYTDPress"
+                        class="sapUiTinyMarginBottom tileContent"
+                        frameType="TwoByOne">
+                        <layoutData>
+                            <f:GridContainerItemLayoutData minRows="4" columns="4" />
+                        </layoutData>
+                        <TileContent>
+                            <NumericContent 
+                                value="{/plannedOrdersYTDCount}" 
+                                scale=""
+                                valueColor="Good"
+                                icon="sap-icon://time-entry-request"
+                                withMargin="false"/>
+                        </TileContent>
+                    </GenericTile>
+                    
+                    <!-- Production Orders YTD Tile -->
+                    <GenericTile 
+                        id="productionOrdersYTDTile"
+                        header="{i18n>productionOrdersYTD}"
+                        subheader="{i18n>filterYTD}"
+                        press=".onProductionOrdersYTDPress"
+                        class="sapUiTinyMarginBottom tileContent"
+                        frameType="TwoByOne">
+                        <layoutData>
+                            <f:GridContainerItemLayoutData minRows="4" columns="4" />
+                        </layoutData>
+                        <TileContent>
+                            <NumericContent 
+                                value="{/productionOrdersYTDCount}" 
+                                scale=""
+                                valueColor="Error"
+                                icon="sap-icon://activities"
+                                withMargin="false"/>
+                        </TileContent>
+                    </GenericTile>
+                </f:GridContainer>
+                
+                <!-- Quick Stats Section (Optional) -->
+
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

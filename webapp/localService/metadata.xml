@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+<edmx:DataServices m:DataServiceVersion="2.0">
+<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZSHOP_PORTAL_863_SRV_01" xml:lang="en" sap:schema-version="1">
+<EntityType Name="Login" sap:content-version="1">
+<Key>
+<PropertyRef Name="Userid"/>
+</Key>
+<Property Name="Userid" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="User Identification Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Password" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Password" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+</EntityType>
+<EntityType Name="PlannedOrder" sap:content-version="1">
+<Key>
+<PropertyRef Name="Plannedordernumber"/>
+</Key>
+<Property Name="Plannedordernumber" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Planned Order" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Materialnumber" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Material" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Planningplant" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Planning Plant" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Productionplant" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Production Plant" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Plannedquantity" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:unicode="false" sap:unit="Baseunitofmeasure" sap:label="Order Quantity" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Availablequantity" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:unicode="false" sap:unit="Baseunitofmeasure" sap:label="Scrap Quantity" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Basicstartdate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Order Start" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Basicenddate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Order End Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Releasedate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Opening Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Mrpcontroller" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="MRP Controller" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Ordercategory" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Planned Order Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Procurementtype" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Procurement" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Baseunitofmeasure" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Base Unit" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/>
+</EntityType>
+<EntityType Name="ProductionOrder" sap:content-version="1">
+<Key>
+<PropertyRef Name="Ordernumber"/>
+</Key>
+<Property Name="Ordernumber" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Order" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Ordertype" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Order Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Plant" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Enteredby" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Entered By" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Creationdate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Created On" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Objectnumber" Type="Edm.String" Nullable="false" MaxLength="22" sap:unicode="false" sap:label="Object number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Basicstartdate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Bas. Start Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Basicfinishdate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Basic fin. date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Totalorderquantity" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:unicode="false" sap:unit="Baseunitofmeasure" sap:label="Target Quantity" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Baseunitofmeasure" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Unit of measure" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/>
+<Property Name="Actualreleasedate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Actual release" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Plannedreleasedate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Planned Release" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+</EntityType>
+<EntityContainer Name="ZSHOP_PORTAL_863_SRV_01_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+<EntitySet Name="LoginSet" EntityType="ZSHOP_PORTAL_863_SRV_01.Login" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+<EntitySet Name="PlannedOrderSet" EntityType="ZSHOP_PORTAL_863_SRV_01.PlannedOrder" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+<EntitySet Name="ProductionOrderSet" EntityType="ZSHOP_PORTAL_863_SRV_01.ProductionOrder" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+</EntityContainer>
+<Annotation xmlns="http://docs.oasis-open.org/odata/ns/edm" Term="Core.SchemaVersion" String="1.0.0"/>
+<atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="http://172.17.19.24:8000/sap/opu/odata/sap/ZSHOP_PORTAL_863_SRV/$metadata"/>
+<atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="http://172.17.19.24:8000/sap/opu/odata/sap/ZSHOP_PORTAL_863_SRV/$metadata"/>
+</Schema>
+</edmx:DataServices>
+</edmx:Edmx>

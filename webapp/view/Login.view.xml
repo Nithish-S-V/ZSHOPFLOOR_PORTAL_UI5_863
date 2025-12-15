@@ -1,0 +1,117 @@
+<mvc:View
+    controllerName="ZSHOPFLOOR_PORTAL_UI5_863.controller.Login"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    displayBlock="true"
+    height="100%">
+    <Page id="loginPage" showHeader="false" class="loginPage">
+        <content>
+            <FlexBox 
+                height="100%" 
+                width="100%" 
+                alignItems="Center" 
+                justifyContent="Center" 
+                direction="Column"
+                class="loginContainer">
+                
+                <!-- Logo/Title Section -->
+                <VBox alignItems="Center" class="sapUiMediumMarginBottom">
+                    <core:Icon src="sap-icon://factory" size="4rem" color="#0854A0" class="sapUiSmallMarginBottom"/>
+                    <Title text="Shop Floor Portal" level="H1" class="loginTitle"/>
+                    <Text text="Engineering &amp; Operations Dashboard" class="loginSubtitle"/>
+                </VBox>
+                
+                <!-- Login Card -->
+                <Panel 
+                    width="400px" 
+                    class="loginPanel sapUiResponsiveContentPadding">
+                    <headerToolbar>
+                        <Toolbar class="loginPanelHeader">
+                            <Title text="{i18n>loginFormTitle}" level="H2"/>
+                        </Toolbar>
+                    </headerToolbar>
+                    <content>
+                        <form:SimpleForm
+                            editable="true"
+                            layout="ResponsiveGridLayout"
+                            labelSpanXL="12"
+                            labelSpanL="12"
+                            labelSpanM="12"
+                            labelSpanS="12"
+                            emptySpanXL="0"
+                            emptySpanL="0"
+                            emptySpanM="0"
+                            emptySpanS="0"
+                            columnsXL="1"
+                            columnsL="1"
+                            columnsM="1"
+                            singleContainerFullSize="true">
+                            <form:content>
+                                <Label text="{i18n>usernameLabel}" required="true"/>
+                                <Input 
+                                    id="usernameInput" 
+                                    type="Text" 
+                                    placeholder="{i18n>usernamePlaceholder}"
+                                    value=""
+                                    required="true"
+                                    submit=".onLoginPress"
+                                    class="loginInput">
+                                    <layoutData>
+                                        <FlexItemData growFactor="1"/>
+                                    </layoutData>
+                                </Input>
+                                
+                                <Label text="{i18n>passwordLabel}" required="true"/>
+                                <Input 
+                                    id="passwordInput" 
+                                    type="Password" 
+                                    placeholder="{i18n>passwordPlaceholder}"
+                                    value=""
+                                    required="true"
+                                    submit=".onLoginPress"
+                                    class="loginInput">
+                                    <layoutData>
+                                        <FlexItemData growFactor="1"/>
+                                    </layoutData>
+                                </Input>
+                            </form:content>
+                        </form:SimpleForm>
+                        
+                        <!-- Error Message Bar (hidden by default) -->
+                        <MessageStrip 
+                            id="errorMessageStrip"
+                            text="{i18n>invalidCredentials}"
+                            type="Error"
+                            showIcon="true"
+                            visible="false"
+                            class="sapUiSmallMarginTop"/>
+                        
+                        <!-- Login Button -->
+                        <Button
+                            id="loginButton"
+                            text="{i18n>loginButtonText}"
+                            type="Emphasized"
+                            width="100%"
+                            press=".onLoginPress"
+                            class="sapUiMediumMarginTop loginButton"/>
+                            
+                        <!-- Loading Indicator -->
+                        <BusyIndicator 
+                            id="loginBusyIndicator"
+                            visible="false"
+                            class="sapUiSmallMarginTop"
+                            text="{i18n>authenticating}"/>
+                    </content>
+                </Panel>
+                
+                <!-- Footer Info -->
+                <VBox alignItems="Center" class="sapUiLargeMarginTop">
+                    <Text text="SAP Shop Floor Portal v1.0" class="loginFooter"/>
+                    <Text text="Powered by SAP UI5" class="loginFooter"/>
+                </VBox>
+            </FlexBox>
+        </content>
+    </Page>
+</mvc:View>
